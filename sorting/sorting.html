@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sorting Visualizer | Algo Visualizer</title>
+    <link rel="stylesheet" href="sorting.css" />
+  </head>
+  <body>
+    <header><h1>Sorting Visualizer</h1></header>
+    <div class="controls">
+      <button onclick="generateArray()">Generate Array</button>
+      <label for="size">Size:</label>
+      <input
+        type="range"
+        id="size"
+        min="10"
+        max="100"
+        value="30"
+        oninput="updateSize(this.value)"
+      />
+      <label for="speed">Speed:</label>
+      <input
+        type="range"
+        id="speed"
+        min="10"
+        max="1000"
+        value="200"
+        oninput="updateSpeed(this.value)"
+      />
+      <select id="algorithm">
+        <option value="bubble">Bubble Sort</option>
+        <option value="insertion">Insertion Sort</option>
+        <option value="merge">Merge Sort</option>
+        <option value="quick">Quick Sort</option>
+      </select>
+      <button onclick="startSort()">Start</button>
+    </div>
+    <div id="bars" class="bar-container"></div>
+    <script src="sorting.js"></script>
+  </body>
+</html>
