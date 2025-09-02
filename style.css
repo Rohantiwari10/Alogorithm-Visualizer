@@ -180,26 +180,72 @@ body.menu-open::after {
   color: var(--white); /* ✅ invert hover as well */
 }
 
+/* Position + Base Styling */
 .copyrightText {
   position: absolute;
-  left: 100px;
   top: 40px;
+  left: 100px;
   z-index: 4;
-  font-weight: 500;
   font-size: 1.2em;
-  color: var(--black);
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  color: var(--black); /* auto-switch with theme */
 }
 
+/* Wrapper (keeps spacing clean) */
 .wrapper {
   display: inline-flex;
+  align-items: center;
 }
 
-.wrapper .dynamic-txts {
+/* Highlighted Name */
+.static-txt span {
+  margin-left: 10px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: linear-gradient(
+    270deg,
+    #00ccff,
+    #007bff,
+    #ff00ff,
+    #ffcc00,
+    #00ff99
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 6s ease infinite, glowPulse 3s ease-in-out infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glow Effect */
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 204, 255, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 204, 255, 0.9), 
+                 0 0 35px rgba(255, 0, 255, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 8px rgba(0, 204, 255, 0.5);
+  }
+}
+
+
+
+/* .wrapper .dynamic-txts {
   margin-top: 2px;
   margin-left: 15px;
   height: 25px;
   overflow: hidden;
-}
+} */
 
 .text-wrapper {
   width: 100%;
@@ -241,7 +287,7 @@ body.menu-open::after {
 .static-txt span {
   font-size: 1.5rem;
   color: #00ccff;
-  font-weight: 600;
+  font-weight: 800;
   animation: fadeIn 3s ease-in-out infinite alternate;
 }
 
