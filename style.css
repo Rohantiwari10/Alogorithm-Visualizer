@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+}
+
+.dark {
+  --black: #fff;
+  --white: #000;
+}
+
+header {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 10000;
+}
+
+header .logo {
+  position: relative;
+  display: inline-flex;
+  color: var(--black);
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.rightSide {
+  display: flex;
+}
+
+.btns {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.btns ion-icon {
+  font-size: 1.5em;
+  color: var(--black);
+}
+
+.btns.menuToggle ion-icon {
+  font-size: 3em;
+  margin-top: -13px;
+}
+
+.btns ion-icon:nth-child(2) {
+  display: none;
+}
+
+.btns.active ion-icon:nth-child(2) {
+  display: block;
+}
+
+.btns.active ion-icon:nth-child(1) {
+  display: none;
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  user-select: none;
+  mix-blend-mode: screen;
+}
+
+.dark .mask {
+  filter: invert(1);
+  mix-blend-mode: multiply;
+}
+
+.main .heading h4 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  z-index: 3;
+  font-size: 6.8rem;
+  color: cyan;
+  text-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+}
+
+.main .heading h3 {
+  position: relative;
+  z-index: 3;
+  font-size: 8.5rem;
+  color: cyan;
+  text-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+}
+
+body.menu-open::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.navigation {
+  position: fixed; /* ✅ covers full screen */
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--white); /* ✅ auto changes with theme */
+  z-index: 9999;
+  transition: 0.5s ease;
+}
+
+.navigation.active {
+  left: 0;
+}
+
+.navigation li {
+  list-style: none;
+}
+
+.navigation li a {
+  display: inline-flex;
+  margin: 5px 0;
+  font-size: 2.25em;
+  text-decoration: none;
+  color: var(--black); /* ✅ auto changes */
+  padding: 5px 20px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navigation li a:hover {
+  background: var(--black);
+  color: var(--white); /* ✅ invert hover as well */
+}
+
+.copyrightText {
+  position: absolute;
+  left: 100px;
+  top: 40px;
+  z-index: 4;
+  font-weight: 500;
+  font-size: 1.2em;
+  color: var(--black);
+}
+
+.wrapper {
+  display: inline-flex;
+}
+
+.wrapper .dynamic-txts {
+  margin-top: 2px;
+  margin-left: 15px;
+  height: 25px;
+  overflow: hidden;
+}
+
+.text-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  top: 30%; /* adjust vertical position */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;  /* 👈 ensures text is above mask */
+}
+
+.hero-text {
+  font-size: 8vw;              
+  font-weight: bold;
+  color: cyan;
+  white-space: nowrap;
+  animation: smoothSlide 5s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(0,255,255,0.7);
+  z-index: 6; /* 👈 text on top of everything */
+  position: relative;
+}
+
+.dark .hero-text {
+  background: linear-gradient(90deg, #ff4ecd, #ffcc70, #ff6f61);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(255, 100, 200, 0.7);
+}
+
+
+@keyframes smoothSlide {
+  0%   { transform: translateX(-10%); }
+  50%  { transform: translateX(10%); }
+  100% { transform: translateX(-10%); }
+}
+
+.static-txt span {
+  font-size: 1.5rem;
+  color: #00ccff;
+  font-weight: 600;
+  animation: fadeIn 3s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  100% {
+    left: 100%;
+    margin: 0 -40px 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 20px;
+  }
+
+  .copyrightText {
+    left: 20px;
+    bottom: 30px;
+  }
+
+  .sci {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+
+
