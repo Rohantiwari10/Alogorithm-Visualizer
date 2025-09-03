@@ -104,7 +104,7 @@ input[type="range"] {
 /* ---------------- Bars ---------------- */
 .bar-container {
   margin: 0 auto;
-  max-width: 920px;
+  max-width: 95%;
   height: var(--container-height);
   border: 2px solid #333;
   padding: 10px;

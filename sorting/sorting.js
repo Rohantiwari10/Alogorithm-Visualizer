@@ -2,8 +2,8 @@
 // State & Elements
 // ----------------------------
 let array = [];
-let arraySize = 30;
-let delay = 50; // ms between steps (mapped from speed slider)
+let arraySize = 20;
+let delay = 150; // ms between steps (mapped from speed slider)
 let stopRequested = false; // stop flag
 
 const barsContainer = document.getElementById("bars");
@@ -35,9 +35,15 @@ function defaultGradient() {
 }
 
 // Max array size depending on device
+// Max array size depending on device
 function maxArraySize() {
-  return isMobile() ? 20 : 60;
+  if (isMobile()) {
+    return 20; // mobile limit
+  } else {
+    return 35; //desktop limit
+  }
 }
+
 
 // Map value -> desktop height in px
 function heightFor(value) {
