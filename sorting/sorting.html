@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <title>Sorting Visualizer | Algo Visualizer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sorting Visualizer</title>
     <link rel="stylesheet" href="sorting.css" />
   </head>
   <body>
     <header><h1>Sorting Visualizer</h1></header>
+
     <div class="controls">
-      <button onclick="generateArray()">Generate Array</button>
-      <label for="size">Size:</label>
-      <input
-        type="range"
-        id="size"
-        min="10"
-        max="100"
-        value="30"
-        oninput="updateSize(this.value)"
-      />
-      <label for="speed">Speed:</label>
-      <input
-        type="range"
-        id="speed"
-        min="10"
-        max="1000"
-        value="200"
-        oninput="updateSpeed(this.value)"
-      />
-      <select id="algorithm">
-        <option value="bubble">Bubble Sort</option>
-        <option value="insertion">Insertion Sort</option>
-        <option value="merge">Merge Sort</option>
-        <option value="quick">Quick Sort</option>
-      </select>
-      <button onclick="startSort()">Start</button>
+      <div class="slider-row">
+        <label>
+          Size <input type="range" id="size" min="5" max="100" value="30" />
+        </label>
+        <label>
+          Speed <input type="range" id="speed" min="1" max="50" value="20" />
+        </label>
+      </div>
+
+      <div class="button-row">
+        <button id="generateBtn" class="btn generate">
+          Generate New Array
+        </button>
+        <button id="startBtn" class="btn start">Start</button>
+        <button id="stopBtn" class="btn stop">Stop</button>
+        <select id="algorithm">
+          <option value="bubble">Bubble Sort</option>
+          <option value="insertion">Insertion Sort</option>
+          <option value="merge">Merge Sort</option>
+          <option value="quick">Quick Sort</option>
+        </select>
+      </div>
     </div>
-    <div id="bars" class="bar-container"></div>
+
+    <div id="bars" class="bar-container" aria-live="polite"></div>
+
     <script src="sorting.js"></script>
   </body>
 </html>
